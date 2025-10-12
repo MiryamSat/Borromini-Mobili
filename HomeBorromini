@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+    <title>BorrominiMobili.it</title>
+
+    <style>
+        /*resetto il body e inserisco informazioni generali della pagina*/
+        body {
+            margin: 0px;
+            padding: 0px;
+            font-weight: lighter;
+            
+        }
+
+        /*nella classe navbar cambio il colore con un linear gradient con i toni del grigio*/
+        .navbar {
+            background-image:linear-gradient(rgba(162, 160, 160, 0.863), rgb(124, 124, 124), rgb(65, 64, 64));  
+        }
+
+        /*con a:hover vado a inserire un colore background quando con il cursore si passa sul menu con toni del grigio*/
+        a:hover {
+            background-color: rgba(255, 255, 255, 0.404);  
+        }
+    
+        /*il dropdown menu deve rispettare il background di tutto il menu quindi inserisco toni del grigio=.navbar:bacground image: 
+         background-image:linear-gradient(rgba(162, 160, 160, 0.863), rgb(124, 124, 124), rgb(65, 64, 64));  */   
+
+        .dropdown-menu {
+      
+        background-image:linear-gradient(rgba(162, 160, 160, 0.863), rgb(124, 124, 124), rgb(65, 64, 64));  
+                    }
+        /*il dropdown menu deve rispettare il background di tutto il menu quindi inserisco toni del grigio= a:hover {
+            background-color: rgba(255, 255, 255, 0.404); */
+
+       .dropdown-menu a:hover {
+        background-color: rgba(255, 255, 255, 0.404);
+                              }
+        /*sotto il menu va inserita un immagine di presentazione con una frase motivatrice*/
+        /*.background-titolo è inserita immagine di sfondo di salone arredato*/
+        .bakcground-titolo {
+        background-image:url(https://images.squarespace-cdn.com/content/v1/632e0b5cfc94605382d1fc66/7b283ca3-4208-44f3-8642-c526dce29957/abbinale+mobili+classici+di+legno.jpg) ;
+        width: 100%;
+        height: 1000px;
+        background-size: cover;
+        overflow: hidden;
+        opacity: 0,8;
+        filter: opacity(50%);
+        } 
+        
+        /*gestione di h1 e h2 all'interno del div:background-titolo*/
+        .titolo {
+            color: rgb(0, 0, 0);
+            background-color: ;
+            text-align: center;
+            padding-top: 20%;
+            text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.9), /*ombrabianca intensta*/ -2px -2px 10px rgba(255, 255, 255, 0.7 /*effetto luminoso*/), 3px 3px 15px rgba(255, 255, 255, 0.5) /*diffusione morbida*/;
+        }  
+        
+        /*questa sezione css è dedicata alla composizione stilistica delle card che contengono i vari spazi arredati*/
+        .sezione-carosello {
+            margin: 50px;
+            overflow: hidden;
+            background-color: gray;
+            color: white;
+            text-align: center;
+        }
+
+        /*questa sezione css è dedicata alla composizione della sezione delle news in cui troviamo articoli e consigli per la casa*/
+        .contenitore-news {
+            background-color: rgb(59, 58, 58);
+            color: white;
+            margin-top: 20px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .container {
+          display: flex;
+          justify-content: center;
+        }
+
+        .container .card  {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          width:100px;
+          height:600px;
+          overflow: hidden;
+               }
+      .container .card-img-top {
+        height: 200px;
+        object-fit: cover;
+      }   
+      .
+      .container .card-body {
+        flex-grow: inherit;
+        display: flex;
+        flex-direction: column;
+      }
+
+    
+
+        /*cambio il colore del pulsante "leggi di più" e lo allineo ai colori del sito*/
+        
+        .card-body .btn {
+          display: flex;
+          justify-content:space-around;
+          align-content: flex-end;
+          border: rgb(65, 64, 64);
+          color: white;
+          background-image: linear-gradient(rgba(162, 160, 160, 0.863), rgb(124, 124, 124), rgb(65, 64, 64));
+    
+        }
+
+       .leggi-più-articoli {background-color: rgb(59, 58, 58);
+          color: white;
+          margin-top: 20px;
+          width: 100%;
+          text-align: center;
+            }
+
+        .leggi-più-articoli a {
+          color: white;
+          text-decoration: none;
+        }    
+     
+        
+
+    </style>
+</head>
+<body>
+    <!--MENU: inserito data-bs-theme per avere un colore di testo bianco e stile in linea per creare lettere fine (font-weith:lighter)
+     e grandezza:large-->
+
+ <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top" data-bs-theme="dark" style="font-weight: lighter; font-size:large;">
+
+  <div class="container-fluid">
+    <img src="https://pngimg.com/uploads/dragonfly/dragonfly_PNG14.png" alt="Dragonfly logo" width="50" height="44" style="padding: 1px; margin-right: 5px;">
+    <a class="navbar-brand" href="#">Borromini Mobili</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+
+      <ul class="navbar-nav">
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Chi Siamo</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Lo showroom</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Ambienti
+          </a>
+
+          <ul class="dropdown-menu" style="font-weight: lighter;">
+            <li><a class="dropdown-item" href="#">Cucina</a></li>
+            <li><a class="dropdown-item" href="#">Living</a></li>
+            <li><a class="dropdown-item" href="#">Toilet</a></li>
+            <li><a class="dropdown-item" href="#">Notte</a></li>
+            <li><a class="dropdown-item" href="#">Ragazzi&Nursery</a></li>
+            <li><a class="dropdown-item" href="#">Giardino</a></li>
+          </ul>
+        </li>
+
+      </ul>
+
+    </div>
+
+  </div>
+</nav>
+
+<div class="bakcground-titolo">
+
+    <div class="titolo">
+    <h1>Qualità è il nostro motto, rendervi soddisfatti il nostro scopo</h1>
+    <h2>Insieme, arrederemo la casa dei vostri sogni</h2>
+    </div>
+    
+</div>
+
+<!--sezione dedicata alle card/carosello al cui interno possiamo trovare le immagini delle varie sezioni arredate:
+ (cucina, living, toilet, zona notte, cameretta ragazzi e giardino)-->
+ 
+ <div class="contenitore-news"> 
+  <h3>AMBIENTI</h3>
+</div>
+ <div class="sezione-carosello">
+
+    <div class="card-group">
+
+  <!--prima card-->      
+  <div class="card">
+    <a href="#">
+       <img src="https://media.pianetadesign.it/images/2021/05/cucina-scandinava-bianca-12-510x382.jpg" class="card-img-top" alt="cucina" style="height: 355px;">
+       <!--innesto di una label-->
+       <div class="carousel-caption d-none d-md-block">
+       <h5 style="color: rgb(65, 64, 64); background-color: rgba(240, 248, 255, 0.658);">Cucina</h5>
+       </div>
+    </a> 
+  </div>
+
+  <!--seconda card-->
+  <div class="card">
+    <a href="#">
+       <img src="https://angelopozzoliarchitetto.com/wp-content/uploads/2022/02/22-ristrutturazione-libreria-soggiorno-1024x768.jpg" class="card-img-top" alt="Living" style="height: 355px;">
+       <!--innesto di una label-->
+       <div class="carousel-caption d-none d-md-block">
+        <h5 style="color: rgb(65, 64, 64); background-color: rgba(240, 248, 255, 0.658);">Living</h5>
+       </div>
+    </a>
+  </div>
+
+  <!--terza card-->
+  <div class="card">
+    <a href="#">
+       <img src="https://kamalubagno.it/rivista/wp-content/uploads/2024/05/arredo-bagno-mobili-sospesi-kamalu.jpg" class="card-img-top" alt="toilet" style="height: 355px;">
+       <!--innesto di una label-->
+       <div class="carousel-caption d-none d-md-block">
+        <h5 style="color: rgb(65, 64, 64); background-color: rgba(240, 248, 255, 0.658);">Toilet</h5>
+       </div>
+    </a>  
+  </div>
+
+</div>
+
+
+
+<!--vado a inserire un altro gruppo di tre card-->
+  <div class="card-group" style="margin-top: 10px;">
+
+  <!--prima card-->      
+  <div class="card">
+    <a href="#">
+       <img src="https://fillyourhomewithlove.com/wp-content/uploads/2025/02/letto-stile-giapponese_-2.jpg" class="card-img-top" alt="Notte" style="height: 355px;">
+       <!--innesto di una label-->
+       <div class="carousel-caption d-none d-md-block">
+       <h5 style="color: rgb(65, 64, 64); background-color: rgba(240, 248, 255, 0.658);">Notte</h5>
+       </div>
+    </a> 
+  </div>
+
+  <!--seconda card-->
+  <div class="card">
+    <a href="#">
+       <img src="https://www.onesweetnursery.com/wp-content/uploads/2022/10/mountain-nursery.webp" class="card-img-top" alt="Ragazzi&Nursery" style="height: 355px;">
+       <!--innesto di una label-->
+       <div class="carousel-caption d-none d-md-block">
+        <h5 style="color: rgb(65, 64, 64); background-color: rgba(240, 248, 255, 0.658);">Ragazzi&Nursery</h5>
+       </div>
+    </a>
+  </div>
+
+  <!--terza card-->
+  <div class="card">
+    <a href="#">
+       <img src="https://www.bertosalotti.it/content/archivio_procatimmagine_file/10747/divano-brian-berto-1-schedaBig.jpg" class="card-img-top" alt="Giardino" style="height: 355px;">
+       <!--innesto di una label-->
+       <div class="carousel-caption d-none d-md-block">
+        <h5 style="color: rgb(65, 64, 64); background-color: rgba(240, 248, 255, 0.658);">Giardino</h5>
+       </div>
+    </a>  
+  </div>
+
+</div>
+ </div>
+
+<!--sezione dedicata alle news e alle innovazioni del settore-->
+ <div class="contenitore-news">
+   <h3>NEWS</h3>
+</div>
+
+<!--inserisco una griglia bootstrap al cui interno innesto delle card-->
+<div class="container">
+
+  <div class="row">
+
+    <div class="col">
+     <div class="card" style="width: 20rem;">
+     <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/55150142.jpg?k=4f4c5b245dca9e5ff2d42f6e0cefb60c5de99c81bbdd563c3557cd91c96b1e99&o=&hp=1" class="card-img-top" alt="casa al mare da arredare">
+      
+     <div class="card-body">
+     <h5 class="card-title">Aria di vacanza: 3 piccoli segreti per arredare la tua casa al mare!</h5>
+     <p class="card-text">Le vacanze si avvicinano, il sole inizia a splendere e tutti noi stiamo ardentemente desideranto di tornare alle nostre
+      piccole case estive. Spesso ereditate o comprate con i nostri risparmi questi diamanti grezzi possono diventare dei piccoli e raffinati 
+      gioielli con uno stile minimal, classico e compatto!
+     </p>
+     <a href="#" class="btn">Leggi di più</a>
+     </div>
+     </div>
+    </div>
+
+    <div class="col">
+    <div class="card" style="width: 20rem;">
+    <img src="https://media.lavorincasa.it/post/20/19910/data/tavola-estiva-villadestehometivoli.jpg" class="card-img-top" alt="I trend 2025 per le tavole estive">
+    <div class="card-body">
+    <h5 class="card-title">I trend 2025 per le tavole estive</h5>
+    <p class="card-text">Le tavole della nostra estate 2025 si tingono di colori forti e vivaci. Ci riportano indietro nel tempo con piatti in maiolica
+      decorati e bicchieri con colori diversi che ricordano stelle e frutti marini. Una tavola adatta ad accogliere gli ospiti e i ricordi di un estate
+      in cui ogni portata diventa un ricordo di una magnifica serata.
+    </p>
+    <a href="#" class="btn">Leggi di più</a>
+   </div>
+  </div>
+    </div>
+
+    <div class="col">
+      <div class="card" style="width: 20rem;">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN31zmaNbIM8OEJILKFpmyp61xWsJ6sAUE1A&s" class="card-img-top" alt="Appartamenti minimal ma accoglienti">
+  <div class="card-body">
+    <h5 class="card-title">Appartamenti minimal ma accoglienti</h5>
+    <p class="card-text">Ormai da anni lo stile scandinavo si è imposto come simbolo di eleganza e minimalismo. In questo articolo ti 
+      aiutiamo a creare uno spazio semplice e pulito per trasformare il tuo appartamento in un comodo e tranquillo spazio in cui trascorre
+      il tuo tempo libero. Se seguirai i nostri consigli siamo più che sicuri che non avrai più voglia di uscire di casa!
+    </p>
+    <a href="#" class="btn">Leggi di più</a>
+  </div>
+</div>
+    </div>
+    
+  </div>
+
+</div>
+
+ <div class="leggi-più-articoli">
+  <a href="#"><h2>Leggi tutti i nostri articoli</h2></a>
+ </div>
+
+ 
+ 
+ </div>
+</body>
+</html>
